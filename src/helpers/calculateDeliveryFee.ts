@@ -26,7 +26,7 @@ export const calculateDeliveryFee = ({
   const cartValueFloat = parseFloat(cartValue);
   const deliveryDistanceValue = parseFloat(deliveryDistance);
   const numberOfItemsInt = parseInt(numberOfItems);
-  const orderDate = new Date(orderTime + "Z");
+  const orderDate = new Date(orderTime);
 
   const freeDelivery = cartValueFloat >= FREE_DELIVERY_VALUE ? true : false;
   let calculatedValue = 0;
@@ -62,9 +62,9 @@ export const calculateDeliveryFee = ({
     }
 
     const isRushHour =
-      orderDate.getUTCDay() === RUSH_DAY &&
-      orderDate.getUTCHours() >= RUSH_HOUR_START &&
-      orderDate.getUTCHours() < RUSH_HOUR_END;
+      orderDate.getDay() === RUSH_DAY &&
+      orderDate.getHours() >= RUSH_HOUR_START &&
+      orderDate.getHours() < RUSH_HOUR_END;
     const rushHourMultiplier = isRushHour ? RUSH_HOUR_MULTIPLIER : 1;
 
     calculatedValue = Math.min(
