@@ -6,10 +6,10 @@ export interface CalculateDeliveryFeeParams {
 }
 
 export interface CalculateDeliveryFeeResult {
-  result: number;
+  result: string;
 }
 
-export interface Fields{
+export interface Fields {
   cartValue: string;
   deliveryDistance: string;
   numberOfItems: string;
@@ -17,7 +17,7 @@ export interface Fields{
 }
 
 export interface FormErrors {
-  cartValue: string ;
+  cartValue: string;
   deliveryDistance: string;
   numberOfItems: string;
 }
@@ -27,5 +27,5 @@ export interface validateNumberParams {
   integer?: boolean;
 }
 export interface ValidateNumberResult {
-  error: string ;
+  error: string;
 }

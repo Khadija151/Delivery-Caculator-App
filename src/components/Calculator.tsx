@@ -32,7 +32,7 @@ const Calculator = () => {
     numberOfItems: "",
   });
 
-  const [deliveryFee, setDeliveryFee] = useState<number>(0);
+  const [deliveryFee, setDeliveryFee] = useState<string>("");
   const [isFormValid, setIsFormValid] = useState(false);
 
   const fields: Fields = {
@@ -55,7 +55,7 @@ const Calculator = () => {
   };
 
   useEffect(() => {
-    setDeliveryFee(0);
+    setDeliveryFee("");
     const validateField = ({
       value,
       integer,
@@ -90,8 +90,8 @@ const Calculator = () => {
     };
 
     const calculatedResult = calculateDeliveryFee(params);
-    const formatedResult = calculatedResult.result.toFixed(2);
-    setDeliveryFee(parseFloat(formatedResult));
+    const formatedResult = calculatedResult.result;
+    setDeliveryFee(formatedResult);
   };
 
   const handleChange = (field: keyof Fields, value: string) => {
